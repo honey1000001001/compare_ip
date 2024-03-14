@@ -1,0 +1,20 @@
+import pandas as pd
+
+def compare_ip_addresses(file1, file2, output_file):
+    # 读取两个 Excel 文件中的数据
+    df1 = pd.read_excel(file1)
+    df2 = pd.read_excel(file2)
+    # 根据IP地址列，将在file2中出现但并未在file1中出现的IP地址输出到output_file
+    df_diff = df2[~df2['IP'].isin(df1['IP'])]
+    df_diff.to_excel(output_file, index=False)
+
+if __name__ == "__main__":
+
+    #接受三个文件的地址
+    file1 = input("请输入第一个Excel文件地址：")
+    file2 = input("请输入第二个Excel文件地址：")
+    output_file = input("请输入输出Excel文件地址：")
+
+    #调用compare_ip_addresses函数
+    compare_ip_addresses("file1", "file2", "output_file")
+    print("完成比较并输出结果到output_file.xlsx")
