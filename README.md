@@ -1,2 +1,2 @@
 # compare_ip
-compare_ip_with_pandas(in excel)
+compare_ip_use_pandas(in excel)
